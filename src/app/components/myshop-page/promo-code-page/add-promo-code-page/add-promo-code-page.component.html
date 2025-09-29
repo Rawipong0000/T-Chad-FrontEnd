@@ -1,0 +1,35 @@
+<div class="popup popup--promocode">
+    <div style="text-align: right;">
+        <button (click)="closePopup()" style="border:none; background:none; font-weight:bold;">X</button>
+    </div>
+
+    <form align="center">
+        <table>
+            <thead>
+                <tr>
+                    <th>Discount_code</th>
+                    <th>%Discount</th>
+                    <th>Fix Discount</th>
+                    <th>Minimum_total</th>
+                    <th>Maximum_discount</th>
+                    <th>Limit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" [(ngModel)]="Discount_Code" name="code"></td>
+                    <td><input type="number" [(ngModel)]="Discount_Percent" name="percent"></td>
+                    <td><input type="number" [(ngModel)]="Discount_Fix" name="fix"></td>
+                    <td><input type="number" [(ngModel)]="Discount_Minimum" name="maximum"></td>
+                    <td><input type="number" [(ngModel)]="Discount_Maximum" name="minimum"></td>
+                    <td><input type="number" [(ngModel)]="Discount_Limit" name="limit"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class ="button-div">
+            <button type="button" class="general-button" *ngIf="Discount_ID != 0 && Delflag != false;" (click)="SaveEditing()">Save</button><br><br>
+            <button type="button" class="general-button" *ngIf="Discount_ID != 0 && Delflag != false;" (click)="DeactivatePromoCode()">Deactivate</button><br><br>
+            <button type="button" class="general-button" *ngIf="Discount_ID == 0" (click)="CreatePromo()">Save</button><br><br>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,53 @@
+<div class="sidebar">
+    <div *ngIf="pageURL === '/MyShop/user'">
+        <div class="inner-box">
+            <div class="container">
+                <div class="circle">
+                    <fa-icon [icon]="faUser" class="faUser-icon"></fa-icon>
+                </div>
+                <div class="text">
+                    {{ usersInfo?.shopname ?? usersInfo?.Name}}
+                    <button class="general-button" (click)="showEdit = true">EDIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="filter-box">
+
+        <!-- ส่วนค้นหา -->
+        <div class="search-section">
+            <input type="text" class="general-input" [(ngModel)]="searchText" placeholder="Search" />
+            <button class="search-btn" (click)="applyFilter()">
+                <fa-icon [icon]="faMagnifyingGlass" class="faMagnifyingGlass-icon"></fa-icon>
+            </button>
+        </div>
+
+        <!-- ช่วงราคา -->
+        <div class="price-range">
+            <p>Price range</p>
+            <div class="price-inputs">
+                <input type="number" class="general-input" [(ngModel)]="priceMin" placeholder="Min" />
+                <input type="number" class="general-input" [(ngModel)]="priceMax" placeholder="Max" />
+            </div>
+        </div>
+
+        <!-- ขนาดสินค้า -->
+        <div class="size-filter">
+            <p>Size</p>
+            <div class="size-buttons">
+                <button class="general-button" *ngFor="let size of ['S', 'M', 'L']" (click)="toggleSize(size)"
+                    [class.selected]="selectedSizes.includes(size)">
+                    {{ size }}
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <div *ngIf="pageURL === '/MyShop/user'" class="sidebar-button-group">
+        <div class="container" (click)=goToOrderManage()>Manage Order</div>
+        <div class="container" (click)=goToPromoCode()>Promo Code</div>
+    </div>
+</div>
+
+<app-edit-shopname *ngIf="showEdit" (closed)="showEdit = false"></app-edit-shopname>

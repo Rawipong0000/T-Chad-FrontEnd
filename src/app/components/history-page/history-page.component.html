@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<!-- วันที่ เรียงใหม่ → เก่า -->
+<div *ngFor="let dateEntry of nestedGroupedOrders | keyvalue: dateDesc">
+  <div class="purchase-date">Purchase_date: {{ dateEntry.key }}</div>
+
+  <!-- tranKey เรียงมาก → น้อย -->
+  <div *ngFor="let tranEntry of dateEntry.value | keyvalue: tranDesc" class="main-container">
+    <div class="sub-container">
+      <div class="status-box" [ngStyle]="{'--status-color': tranEntry.value[0].color}">
+        <div class="status">
+          {{ tranEntry.value[0].status_name }}
+        </div>
+      </div>
+
+      <div class="seller-box">
+        <div>
+          <div style="font-size: 20px; font-weight: 700;">
+            {{ tranEntry.value[0].shopname || tranEntry.value[0].name }}
+          </div>
+          <input type="text" class="general-input general-input--tracking" [(ngModel)]="tranEntry.value[0].tracking" placeholder="tracking No."
+            [disabled]="true" />
+          <textarea class="general-input general-input--address-box" [(ngModel)]="tranEntry.value[0].address" placeholder="address"
+            [readonly]="true" rows="2">
+          </textarea>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Products</th>
+            <th>Discount_code</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="product-list">
+              <div *ngFor="let item of tranEntry.value">
+                {{ item.product_name }}
+              </div>
+            </td>
+            <td>{{ tranEntry.value[0].discount_code }}</td>
+            <td>{{ tranEntry.value[0].sub_total }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="buttons">
+      <button class="general-button" *ngIf="tranEntry.value[0].status_code == 1"
+        (click)="CompleteTransaction(tranEntry.key)">
+        Complete
+      </button>
+
+      <button class="general-button" *ngIf="tranEntry.value[0].status_code == 0 
+                  || tranEntry.value[0].status_code == 1
+                  || tranEntry.value[0].status_code == 5" (click)="RefundTransaction(tranEntry.key)">
+        Refund
+      </button>
+    </div>
+  </div>
+</div>

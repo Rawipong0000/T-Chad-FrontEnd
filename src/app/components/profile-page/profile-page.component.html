@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<body>
+    <div class="main">
+        <div class="form-wrapper">
+
+            <div class="circle">
+                <fa-icon [icon]="faUser" class="faUser-icon"></fa-icon>
+            </div>
+            <div class="form-container">
+
+                <div>
+                    <label>Name</label>
+                    <input type="text" class="general-input" [(ngModel)]="Name" [disabled]="true"/>
+                    <button class="general-button general-button--gap" (click)="editingBox = 1; showEdit = true">EDIT</button>
+                </div>
+                <div>
+                    <label>Surname</label>
+                    <input type="text" class="general-input" [(ngModel)]="Lastname" [disabled]="true"/>
+                    <button class="general-button general-button--gap" (click)="editingBox = 2; showEdit = true">EDIT</button>
+                </div>
+
+                <div>
+                    <label>Email</label>
+                    <input type="email" class="general-input" [(ngModel)]="profile.Email" [disabled]="true"/>
+                </div>
+                <div>
+                    <label>Phone</label>
+                    <input type="text" class="general-input" [(ngModel)]="Phone" [disabled]="true"/>
+                    <button class="general-button general-button--gap" (click)="editingBox = 3; showEdit = true">EDIT</button>
+                </div>
+
+                <div class="full-width">
+                    <label>Address</label>
+                    <input type="text" class="general-input" [(ngModel)]="FullAddress" [disabled]="true"/>
+                    <button class="general-button general-button--gap" (click)="showEditAddress = true">EDIT</button>
+                </div>
+
+                <div class="save-button">
+                    <button class="general-button" (click)="updateProfile()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<app-edit-profile *ngIf="showEdit" (closed)="showEdit = false" (editing)="SaveEditing($event)">
+</app-edit-profile>
+<app-edit-address *ngIf="showEditAddress" (closed)="showEditAddress = false" [step]="currentStep" (addressChange)="onAddressUpdate($event)">
+</app-edit-address>

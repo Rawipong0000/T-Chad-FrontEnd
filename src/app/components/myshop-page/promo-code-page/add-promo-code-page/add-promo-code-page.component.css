@@ -1,0 +1,21 @@
+.popup--promocode{
+    width: 100%;
+}
+
+.button-div {
+    margin: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+}
+

@@ -1,0 +1,89 @@
+<app-header></app-header>
+
+<!-- เรียงวันที่จากใหม่ -> เก่า -->
+<div *ngFor="let dateEntry of nestedGroupedOrders | keyvalue: dateDesc">
+  <div class="purchase-date">Purchase_date: {{ dateEntry.key }}</div>
+
+  <!-- เรียง tranKey จากมาก -> น้อย -->
+  <div *ngFor="let tranEntry of dateEntry.value | keyvalue: tranDesc" class="main-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Buyer</th>
+          <th>Products</th>
+          <th>Discount_code</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            {{ tranEntry.value[0].Name }} <br />
+            <textarea class="general-input general-input--address" [(ngModel)]="tranEntry.value[0].address" placeholder="address"
+            [readonly]="true" rows="2">
+          </textarea>
+          </td>
+          <td class="product-list">
+            <div *ngFor="let item of tranEntry.value">
+              {{ item.product_name }}
+            </div>
+          </td>
+          <td>{{ tranEntry.value[0].discount_code }}</td>
+          <td>{{ tranEntry.value[0].sub_total }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="status-box" [ngStyle]="{'--status-color': tranEntry.value[0].color}">
+      <div class="status">
+        {{ tranEntry.value[0].status_name }}
+      </div>
+
+      <!-- ช่องกรอก tracking เมื่อสถานะ = 0 -->
+      <input
+        class="general-input general-input--tracking"
+        *ngIf="tranEntry.value[0].status_code == 0"
+        [(ngModel)]="tracking[tranEntry.key]"
+        placeholder="tracking"
+      />
+
+      <!-- แสดง tracking แบบ disabled เมื่อมี tracking แล้วและสถานะ != 0 -->
+      <input
+        type="text" class="general-input general-input--tracking"
+        *ngIf="tranEntry.value[0].tracking && tranEntry.value[0].status_code != 0"
+        [(ngModel)]="tranEntry.value[0].tracking"
+        [disabled]="true"
+      />
+
+      <div class="buttons">
+        <button class="general-button"
+          *ngIf="tranEntry.value[0].status_code == 0"
+          (click)="EditTrackingNo(tranEntry.key)"
+        >
+          Send
+        </button>
+
+        <button class="general-button"
+          *ngIf="tranEntry.value[0].status_code == 3"
+          (click)="ApproveRefund(tranEntry.key)"
+        >
+          Confirm
+        </button>
+
+        <button class="general-button"
+          *ngIf="tranEntry.value[0].status_code == 3"
+          (click)="RejectRefund(tranEntry.key)"
+        >
+          Reject
+        </button>
+
+        <button class="general-button"
+          *ngIf="tranEntry.value[0].status_code == 0"
+          (click)="CancelTransaction(tranEntry.key)"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

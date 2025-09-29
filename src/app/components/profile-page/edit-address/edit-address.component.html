@@ -1,0 +1,44 @@
+<div class="popup">
+    <div style="text-align: right;">
+        <button (click)="closePopup()" style="border:none; background:none; font-weight:bold;">X</button>
+    </div>
+
+    <form align="center" *ngIf="Step == 1">
+        <label style="margin-bottom: 10px;" for="province">Province</label>
+        <select class="general-border-input" id="province" name="province" [(ngModel)]="selectedProvince">
+            <option [ngValue]="null" disabled selected>-- เลือกจังหวัด --</option>
+            <option *ngFor="let p of Province_list" [ngValue]="p">
+            {{ p.name_th }} ({{ p.name_en || '-' }})
+            </option>
+        </select>
+        <button type="button" class="general-button" (click)="MainAddressEdit()">Next</button><br><br> 
+    </form>
+
+    <form align="center" *ngIf="Step == 2">
+        <label style="margin-bottom: 10px;" for="district">District</label>
+        <select class="general-border-input" id="district" name="district" [(ngModel)]="selectedDistrict">
+            <option [ngValue]="null" disabled selected>-- เลือกอำเภอ --</option>
+            <option *ngFor="let d of District_list" [ngValue]="d">
+            {{ d.name_th }} ({{ d.name_en || '-' }})
+            </option>
+        </select>
+        <button type="button" class="general-button" (click)="MainAddressEdit()">Next</button><br><br> 
+    </form>
+
+    <form align="center" *ngIf="Step == 3">
+        <label style="margin-bottom: 10px;" for="subdistrict">Subdistrict</label>
+        <select class="general-border-input" id="subdistrict" name="subdistrict" [(ngModel)]="selectedSubdistrict">
+            <option [ngValue]="null" disabled selected>-- เลือกตำบล --</option>
+            <option *ngFor="let s of Subdistrict_list" [ngValue]="s">
+            {{ s.name_th }} ({{ s.name_en || '-' }}) {{s.zipcode}}
+            </option>
+        </select>
+        <button type="button" class="general-button" (click)="MainAddressEdit()">Next</button><br><br> 
+    </form>
+
+    <form align="center" *ngIf="Step == 4">
+        <label for="address">Address</label>
+        <input class="general-border-input" type="text" [(ngModel)]="Address" name="Text" placeholder= 'Please insert your address' ><br><br>
+        <button type="button" class="general-button" (click)="MainAddressEdit()">Save</button><br><br> 
+    </form>
+</div>

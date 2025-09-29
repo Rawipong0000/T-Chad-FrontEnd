@@ -1,0 +1,39 @@
+<div class="sidebar">
+    <div>
+        <div class="inner-box">
+            <div class="circle">image</div>
+            <div class="text">
+                {{ usersInfo?.shopname ?? usersInfo?.Name}}
+                <button (click)="showEdit = true">EDIT</button>
+            </div>
+        </div>
+    </div>
+    <!-- ส่วนค้นหา -->
+    <div class="search-section">
+        <input type="text" [(ngModel)]="searchText" placeholder="Search" />
+        <button class="search-btn" (click)="applyFilter()">
+            <img src="assets/icons/search-icon.png" alt="Search" width="20" />
+        </button>
+    </div>
+
+    <!-- ช่วงราคา -->
+    <div class="price-range">
+        <p>Price range</p>
+        <div class="price-inputs">
+            <input type="number" [(ngModel)]="priceMin" placeholder="Min" />
+            <input type="number" [(ngModel)]="priceMax" placeholder="Max" />
+        </div>
+    </div>
+
+    <!-- ขนาดสินค้า -->
+    <div class="size-filter">
+        <p>Size</p>
+        <div class="size-buttons">
+            <button *ngFor="let size of ['S', 'M', 'L']" (click)="toggleSize(size)"
+                [class.selected]="selectedSizes.includes(size)">
+                {{ size }}
+            </button>
+        </div>
+    </div>
+</div>
+<app-shopname-edit *ngIf="showEdit" (closed)="showEdit = false"></app-shopname-edit>

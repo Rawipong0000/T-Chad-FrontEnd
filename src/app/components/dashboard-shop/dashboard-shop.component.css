@@ -1,0 +1,90 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #eac9a7;
+  border-radius: 30px;
+}
+
+.product-card:hover{
+  background-color:rgb(246, 223, 92);
+}
+
+.product-box {
+  background-color: #eac9a7;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 30px;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-box:hover{
+  background-color:rgb(246, 223, 92);
+}
+
+.product-img img {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  background-color: aliceblue;
+  object-fit: cover;
+  border: none;
+}
+
+.product-info {
+  text-align: left;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: aliceblue;
+  margin-top: 10px;
+}
+
+.main-layout {
+  display: flex;
+  height: calc(100vh - 70px); /* ลบ header สูงประมาณ 70px */
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.add-product-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.edit-product-box {
+  background-color: #eac9a7;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-product-box .inside {
+  margin: 7px;
+}
+
+.Product-Name{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.Info-Text{
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.Price-Text{
+  text-align: center;
+  border-radius: 20px;
+  background-color: #eac9a7;
+  font-size: 20px;
+  font-weight: 500;
+}

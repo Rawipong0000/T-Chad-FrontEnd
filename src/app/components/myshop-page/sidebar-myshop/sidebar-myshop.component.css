@@ -1,0 +1,84 @@
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    border-right: 2px solid #000000;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100%;
+    /* เพื่อให้เต็มใน flex container */
+    overflow-y: auto;
+}
+
+.home-btn {
+    background-color: aqua;
+    border-radius: 50px;
+    width: 100%;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.search-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-section input {
+    flex: 1;
+    padding: 5px;
+}
+
+.search-btn {
+    background-color: aqua;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price-range input {
+    width: 80px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.size-buttons button {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+button.selected {
+    background-color: #00d9ff;
+    color: white;
+    font-weight: bold;
+}
+
+.inner-box {
+    width: 150px;
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    background-color: cyan;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 0 auto;
+    line-height: 60px;
+    font-size: 12px;
+}
+
+.text {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}

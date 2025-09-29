@@ -1,0 +1,96 @@
+<app-header></app-header>
+<div *ngIf="pageURL.includes('/dashboard/product')">
+    <div class="product-detail-container" *ngIf="product">
+
+        <!-- ซ้าย: Sub Images -->
+        <div class="sub-images">
+            
+        </div>
+
+        <!-- กลาง: Main Image + Name + Description -->
+        <div class="main-content">
+            <div>
+                <img class="main-img" [src]="product.img || 'placeholder.png'" alt="img" />
+            </div>
+            <div class="product-name">{{ product.product_name }}</div>
+            <div class="product-description">{{ product.description }}</div>
+        </div>
+
+        <!-- ขวา: Seller + Size + Tag + Price -->
+        <div class="product-side">
+            <div class="product-name">{{ product.name }}</div>
+            <div>
+                <label class="sub-title">size</label>
+                <div class="size-box">{{ product.size }}</div>
+            </div>
+            
+            <div class="price-container">
+                <label class="sub-title">Price</label>
+                <div class="general-input general-input--pricebox">{{ product.price | currency }}</div>
+                <button class="general-button" (click)=AddPurchase()>Add</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="pageURL.includes('/MyShop/user/edit-product') || pageURL.includes('/MyShop/user/add-product')">
+    <div class="product-detail-container" *ngIf="product">
+
+        <!-- ซ้าย: Sub Images -->
+        <div *ngIf="pageURL.includes('/MyShop/user/edit-product')" class="sub-images">
+            
+        </div>
+
+        <div *ngIf="pageURL.includes('/MyShop/user/edit-product')" class="main-content">
+            <div>
+                <img class="main-img" [src]="product.img || 'placeholder.png'" alt="img" />
+            </div>
+            <button class="general-button" (click)="showEdit = true">Add image url</button>
+            <div class="product-name"><input class="general-input general-input--namebox" type="text" [(ngModel)]="product_name" name="product_name"
+                    placeholder="product_name"></div>
+            <div class="product-description">
+                <textarea class="general-input" [(ngModel)]="description" name="description" placeholder="description"></textarea>
+            </div>
+        </div>
+
+        <div *ngIf="pageURL.includes('/MyShop/user/add-product')" class="main-content">
+            <div class="product-form">
+                <div class="main-img">
+                    <img class="main-img" *ngIf="img" [src]="img" alt="Preview" width="150">
+                </div>
+                <button class="general-button" (click)="showEdit = true">Add image url</button>
+                <div class="product-name" name="description"></div>
+            </div>
+            <div class="product-name"><input class="general-input general-input--namebox" type="text" [(ngModel)]="product_name" name="product_name"
+                    placeholder="product_name"></div>
+            <div class="product-description">
+                <textarea class="general-input" [(ngModel)]="description" name="description" placeholder="description"></textarea>
+            </div>
+        </div>
+
+        <div class="product-side">
+            <div class="product-size">
+                <label class="sub-title">size</label>
+                <div class="size-buttons">
+                    <button class="size-box" *ngFor="let size of ['S', 'M', 'L']" (click)="toggleSize(size)"
+                        [class.selected]="selectedSize === size">
+                        {{ size }}
+                    </button>
+                </div>
+            </div>
+            
+            <div class="price-container">
+                <label class="sub-title">Price</label>
+                <div><input class="general-input general-input--priceedit" type="number" [(ngModel)]="price" name="price" placeholder="price"></div>
+                <button *ngIf="pageURL.includes('/MyShop/user/edit-product')" class="general-button" (click)=EditProduct()>Save</button>
+                <button *ngIf="pageURL.includes('/MyShop/user/add-product')" class="general-button" (click)=SaveProduct()>Add</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<app-image-edit-product *ngIf="showEdit" (closed)="showEdit = false" (urlSaved)="handleSavedURL($event)">
+</app-image-edit-product>

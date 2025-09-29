@@ -1,0 +1,73 @@
+.Login-Box{
+  transform: translateY(60px);
+}
+
+.Login-card{
+  border-radius: 30px;
+  background: #e9d0b9;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+:host {
+  min-height: 100svh; 
+  display: flex;
+  flex-direction: column;
+  background: #f6f7fb;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+.page {
+  flex: 1;                      
+  display: flex;
+  justify-content: center;      
+  align-items: flex-start;      
+  padding: 10px 16px 88px;     
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: url("/assets/Login-header.jpg") no-repeat center/cover;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.site-header .container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.head-title{
+    font-family: 'Goudy Stout', sans-serif;
+    font-weight: bold;
+    padding: 20px 20px;
+}
+
+.Sub-link{
+    text-decoration: underline;
+}
+
+.Sub-link:hover{
+    color: #0055ff;
+    text-decoration: underline;
+}
+
+.site-footer {
+  background: #eac9a7;
+  border-top: 1px solid #e5e7eb;
+}
+
+.site-footer .container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  text-align: center;
+  color: #6b7280;
+}

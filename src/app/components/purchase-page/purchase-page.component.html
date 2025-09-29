@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="cart-container">
+  <div class="cart-items">
+    <div class="seller-group" *ngFor="let seller of groupedCart | keyvalue">
+      <h3 style="font-size: 20px;">{{ seller?.value?.shopname ?? seller?.value?.name }}</h3>
+      <div class="cart-item" *ngFor="let item of seller.value.items">
+        <div class="item-img">
+          <img [src]="item.img || 'placeholder.png'" alt="Product Image">
+        </div>
+        <div class="item-details">
+          <div><strong>{{ item.product_name }}</strong></div>
+          <div>Size: {{ item.size }}</div>
+          <div>Price: {{ item.price | currency }}</div>
+        </div>
+        <div class="item-remove">
+          <button class="remove-btn" (click)="removeItem(item)">X</button>
+        </div>
+      </div>
+      <div class="discount-code">
+      <input type="text" class="general-input general-input--redeem" [(ngModel)]="discountCodes[seller.key]" placeholder="8 characters prome-code" maxlength="8">
+      <button class="general-button" (click)="Redeem(seller.key)">Redeem</button>
+      </div>
+      <div class="price-box"><p><strong>Total Price:</strong> {{ seller.value.total | currency }}</p></div>
+    </div>
+  </div>
+
+  <div class="cart-summary">
+    <div class="container">
+    <p style="font-size: 20px;"><strong>Total:</strong></p>
+    <input type="text" 
+       class="general-input general-input--purchase" 
+       [value]="getTotalPrice() | currency" 
+       [disabled]="true"/>
+    <button class="general-button general-button--purchase" (click)="purchase()">Purchase</button>
+    </div>
+  </div>
+</div>

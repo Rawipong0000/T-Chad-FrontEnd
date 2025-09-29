@@ -1,0 +1,42 @@
+<header class="site-header">
+  <div class="container">
+
+  </div>
+</header>
+
+<main class="page">
+  <div class="Login-Box">
+    <h1 align="center" class="head-title">T-Chad</h1>
+
+    <form (ngSubmit)="onLogin()" class="Login-card">
+      <table align="center" cellpadding="10">
+
+        <tr>
+          <td>User</td>
+          <td><input type="text" class="general-input" [(ngModel)]="username" name="user"></td>
+        </tr>
+        <tr>
+          <td>Pass</td>
+          <td><input type="password" class="general-input" [(ngModel)]="password" name="pass"></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right"><button type="submit" class="general-button">Login</button></td>
+        </tr>
+      </table>
+    </form>
+
+    <div align="center" style="margin-top: 20px;">
+      <p class="Sub-link" (click)="showSignup = true">Sign up</p>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2025 T-Chad — All rights reserved.
+  </div>
+</footer>
+
+<app-signup *ngIf="showSignup" (closed)="showSignup = false"></app-signup>

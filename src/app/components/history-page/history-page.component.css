@@ -1,0 +1,90 @@
+.status-box {
+    border: 2px solid var(--status-color);
+    border-radius: 30px;
+    background-color: #eac9a7;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    margin-left: 10px;
+}
+
+.status {
+    color: var(--status-color);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tracking {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end; /* ✅ ชิดขวา */
+  gap: 10px;
+}
+
+.purchase-date {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.main-container {
+    display: flex;
+    border: none;
+    border-radius: 20px;
+    background-color:#b99e83;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+
+.seller-box {
+    width: 20%;
+    display: flex;
+    padding: 10px;
+}
+
+.general-input--tracking{
+    background-color: aliceblue;
+    margin: 10px;
+}
+
+.general-input--address-box {
+    width: 100%;
+    background-color: aliceblue;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: flex;
+    padding: 10px;
+}
+
+.sub-container {
+    width: 100%;
+    display: flex;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 2px solid #b99e83;
+    border-radius: 20px;
+    background-color: #eac9a7;
+    padding: 10px;
+    text-align: center;
+}

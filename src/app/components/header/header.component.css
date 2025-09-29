@@ -1,0 +1,87 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid black;
+  padding: 10px;
+  background: white;
+  position: relative;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: url("/assets/Login-header.jpg") no-repeat center/cover;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.site-header .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-btn {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 20px 20px;
+  border: none;
+  font-weight: bold;
+}
+
+.home-btn:hover {
+  background-color:  rgb(246, 223, 92, 0.5);
+}
+
+.home-btn .head-tilte{
+    font-family: 'Goudy Stout', sans-serif;
+    font-weight: bold;
+}
+
+.profile-container {
+  position: relative;
+}
+
+.profile-btn {
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  border: none;
+  font-weight: bold;
+}
+
+.popup-menu {
+  position: absolute;
+  top: 110px;
+  right: 0;
+  background:transparent;
+  border:none;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.popup-menu button {
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 40%;
+  background: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popup-menu button:hover {
+  background-color: rgb(246, 223, 92);
+  border-color: #111827
+}
+
+.faUser-icon {
+  font-size: 1.75rem;
+}
+

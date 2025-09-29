@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div class="main-layout">
+  <app-sidebar-search class="sidebar" (filterChanged)="onFilterChanged($event)"></app-sidebar-search>
+
+  <div class="content">
+
+    <div class="add-product-bar" *ngIf="pageURL === '/MyShop/user'"><button class="general-button"
+        (click)="addProduct()">+Add Product</button></div>
+
+    <div class="product-grid">
+      <div class="product-card" *ngFor="let product of this.products">
+        <div class="edit-product-box" *ngIf="pageURL === '/MyShop/user'">
+          <div class="inside">
+            <button class="general-button" (click)="editProduct(product)">Edit</button>
+          </div>
+        </div>
+        <div class="product-box" (click)="goProductPage(product)">
+
+          <div class="product-img">
+            <img [src]="product.img || 'placeholder.png'" alt="img" />
+          </div>
+          <div class="product-info">
+            <div class="Product-Name">
+              {{ product.product_name }}
+            </div>
+            <div class="Info-Text">
+              <p>SELLER: {{ product?.shopname ?? product?.name }}</p>
+            </div>
+            <div class="Info-Text">
+              <p>SIZE: {{ product.size }}</p>
+            </div>
+            <div class="Price-Text">
+              <p>PRICE: {{ product.price | currency }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

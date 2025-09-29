@@ -1,0 +1,47 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.product-box {
+  background-color: aqua;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-img img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.product-info {
+  text-align: center;
+}
+
+.main-layout {
+  display: flex;
+  height: calc(100vh - 70px); /* ลบ header สูงประมาณ 70px */
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.add-product-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}

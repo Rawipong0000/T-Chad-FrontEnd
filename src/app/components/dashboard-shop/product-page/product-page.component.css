@@ -1,0 +1,149 @@
+.product-detail-container {
+    display: flex;
+    gap: 20px;
+}
+
+.sub-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sub-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid black;
+}
+
+.main-content {
+    flex: 1;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.main-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: none;
+    border-radius: 20px;
+    background-color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.product-name{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.product-description {
+    margin-top: 10px;
+    height: 200px;
+}
+
+.product-description {
+    border: none;
+    border-radius: 10px;
+    background-color: aliceblue;
+    padding: 20px;
+    text-align: left;
+}
+
+.product-side {
+    display: flex;
+    background-color: #b99e83;
+    flex-direction: column;
+    width: 15%;
+    padding: 10px;
+    gap: 15px;
+}
+
+.seller-btn {
+    background-color: cyan;
+    padding: 10px;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+.size-box {
+    
+    width: 30px;
+    text-align: center;
+    margin-top: 5px;
+
+    background-color: rgb(246, 223, 92);
+    border-radius: 50px;
+    padding: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+.sub-title{
+    font-size: 20px;
+}
+
+.price-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    padding: 10px;
+    gap: 10px;    
+}
+
+.general-input--pricebox{
+    font-size: 20px;
+    background-color:#eac9a7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding: 5px;
+}
+
+.general-input--priceedit{
+    font-size: 20px;
+    background-color:#ede8e3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding: 5px;
+}
+
+.general-input--namebox{
+    margin: 10px;
+    font-size: 20px;
+}
+
+.add-btn {
+    background-color: gold;
+    padding: 10px;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.product-description textarea {
+  width: 100%;
+  height: 20%;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  resize: vertical; /* ✅ ให้ลากขยายได้ */
+  box-sizing: border-box;
+}
+
+button.selected {
+    background-color: #00d9ff;
+    color: white;
+    font-weight: bold;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ✅ จัดให้ทุกอย่างอยู่ตรงกลาง */
+  gap: 20px;
+  padding: 20px;
+}

@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border: 2px solid #000;
+}
+
+.circle-button {
+    background-color: cyan;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px);
+    /* ลดขนาด header */
+    position: relative;
+}
+
+.form-container {
+    width: 50%;
+    height: 100%;
+    border: none;
+    border-radius: 30px;
+    padding: 20px 40px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px 30px;
+    position: relative;
+    background:#eac9a7;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border-radius: 50%;
+  margin:  auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faUser-icon {
+  font-size: 4rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #000;
+}
+
+.full-width {
+    grid-column: 1 / span 2;
+}
+
+.general-button--gap{
+    margin: 5px;
+}
+
+.save-button {
+    grid-column: 2;
+    justify-self: end;
+    margin-top: 10px;
+}
+
+button.save {
+    padding: 8px 16px;
+    background-color: #fbd966;
+    border: 2px solid #000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-wrapper {
+    width: 100%;
+    height: auto;
+    padding: 20px 40px;
+    gap: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class = "add-product-bar"><button class="general-button" (click)="showEdit = true; this.ID = 0;">+Add New Code</button></div>
+<div class="main-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Discount_code</th>
+          <th>%Discount</th>
+          <th>Fix Discount</th>
+          <th>Minimum_total</th>
+          <th>Maximum_discount</th>
+          <th>Limit</th>
+          <th>Usage</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let promocode of this.promocodes" (click) = "showEdit = true; this.ID = promocode.discount_id ?? 0; ShowLog();">
+          <td>{{ promocode.discount_code }}</td>
+          <td>{{ promocode.discount_by_percent }}</td>
+          <td>{{ promocode.discount_by_number }}</td>
+          <td>{{ promocode.minimum_total }}</td>
+          <td *ngIf="promocode.maximum_discount == 999999"> - </td>
+          <td *ngIf="promocode.maximum_discount != 999999">{{ promocode.maximum_discount }}</td>
+          <td *ngIf="promocode.limit == 999999">Unlimit</td>
+          <td *ngIf="promocode.limit != 999999">{{ promocode.limit }}</td>
+          <td>{{ promocode.used }}</td>
+          <td *ngIf="promocode.delflag == true">Active</td>
+          <td *ngIf="promocode.delflag != true || promocode.limit == promocode.used">Inactive</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-add-promo-code-page *ngIf="showEdit" (closed)="showEdit = false" [DiscountID]="ID"></app-add-promo-code-page>

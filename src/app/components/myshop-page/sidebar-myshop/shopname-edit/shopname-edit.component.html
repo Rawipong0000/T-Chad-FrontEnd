@@ -1,0 +1,10 @@
+<div class="popup">
+    <div style="text-align: right;">
+        <button (click)="closePopup()" style="border:none; background:none; font-weight:bold;">X</button>
+    </div>
+
+    <form align="center">
+        <input type="text" [(ngModel)]="Shopname" name="Shopname" placeholder= 'กรุณากรอกชื่อร้านค้า' ><br><br>
+        <button type="button" (click)="EditShopName()">Save</button><br><br> 
+    </form>
+</div>
