@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/service/product.service';
 import { CartItem } from 'src/app/model/productlist.model';
 
@@ -24,7 +24,8 @@ export class ProductPageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private productService: ProductService
+    private route: ActivatedRoute,
+    private productService: ProductService,
   ) {
       this.router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
@@ -38,7 +39,10 @@ export class ProductPageComponent implements OnInit {
   loadDashboardProduct() {
     this.product = JSON.parse(localStorage.getItem('product') || '{}')
     this.product_name = this.product.product_name
-    this.product_id = this.product.product_id;
+    this.route.paramMap.subscribe(params => {
+      this.product_id = Number(params.get('id'));
+    });
+    console.log("product_id: ", this.product_id)
     this.img = this.product.img;
     this.description = this.product.description;
     this.selectedSize = this.product.size;
